@@ -1,0 +1,41 @@
+
+<div class='col-xs-offset-1'>
+
+<form class='row'>
+<div class='col-xs-4'>
+  <strong>Category:</strong>
+  <select ng-model='trainingsCtrl.selectedCategory' ng-options='categoryName for (category, categoryName) in trainingsCtrl.categories'>
+  </select>
+</div>
+<br />
+</form>
+
+<div class='row'>
+  <div class='col-xs-4' ng-repeat = "training in trainingsCtrl.trainings | filter: trainingsCtrl.categoryFilter">
+  <div class = 'panel panel-default'>
+    <div class='panel-heading'>
+      <h2 class='panel-title'>{{training.name}}</h2>
+    </div>
+    <div class='panel-body'>
+      <span>Scheduled:</span>
+      <em>{{training.date}}</em><br/>
+      <span>Duration:</span>
+      <em>{{training.duration}}</em><br/>
+      <span>Participants:</span>
+      <em>{{training.participants}}</em><br/><br/>
+      <div>
+        <strong>Venue:</strong><br/>
+        <address>
+          {{training.venue.street}}<br/>
+          {{training.venue.city}}<br/>
+          {{training.venue.zip}}
+        </address>
+      </div>
+    </div>
+    <div class='panel-footer'>
+      <button type='button' class='btn btn-primary'>Register</button>
+    </div>
+  </div>
+</div>
+</div>
+</div>
